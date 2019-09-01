@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>ToDo App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app">
         <ul>
-            <li></li>
+            <li v-for="task in tasks">
+                <span>{{task.text}}</span>
+            </li>
+            
         </ul>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="app.js"></script>
 </body>
 </html>
