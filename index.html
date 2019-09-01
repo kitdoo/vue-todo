@@ -7,9 +7,12 @@
 </head>
 <body>
     <div id="app">
+        <input type="text" @keyup.enter="addTask" v-model="currentTask">
         <ul>
             <li v-for="task in tasks" :class="{'strike': task.isCompleted}">
-                <span>{{task.text}}</span>
+                <span @click="task.isCompleted = !task.isCompleted">
+                    {{task.text}}</span>
+                <button @click="removeTask(task.text)">X</button>
             </li>
             
         </ul>
