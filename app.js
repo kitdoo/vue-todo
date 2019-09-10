@@ -5,13 +5,8 @@ new Vue({
         editVaue: '',
         tasks: [
             {
-                text: "subscribe",
-                isCompleted: false,
-                isEditing:false
-            },
-            {
                 text: "walk",
-                isCompleted: true,
+                isCompleted: false,
                 isEditing:false
             },
             {

@@ -7,26 +7,49 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" @keyup.enter="addTask" v-model="currentTask">
+        <h1>ToDo App</h1>
+        <input type="text" 
+        @keyup.enter="addTask" 
+        v-model="currentTask" 
+        class="forText">
         <ul>
             <li 
             v-for="task in tasks" 
             :class="{'strike': task.isCompleted}">
-                <input 
-                type="text" 
-                v-if="task.isEditing"
-                @keyup.enter="editTask(task.text)"
-                v-model="editValue">
-                <span 
-                v-else
-                @click="task.isCompleted = !task.isCompleted">
-                    {{task.text}}</span>
-                <button @click="removeTask(task.text)">X</button>
-                <button @click="changeEditing(task.text)">*</button>
+            <div class="wrapper">
+                <div>
+                    <input 
+                    type="text" 
+                    v-if="task.isEditing"
+                    @keyup.enter="editTask(task.text)"
+                    v-model="editValue"
+                    class="forText">
+                    <span 
+                    v-else
+                    @click="task.isCompleted = !task.isCompleted"
+                    class="forText">
+                        {{task.text}}</span>
+                </div>
+                <div class="actions">
+                    <button @click="task.isCompleted = !task.isCompleted" class="done">
+                            <i class="fas fa-check-square"></i>
+                    </button>
+                    <button @click="changeEditing(task.text)" class="edit">
+                            <i class="fas fa-edit"></i>
+                    </button>
+                    <button @click="removeTask(task.text)" class="remove">
+                        <i class="fas fa-trash-alt"></i>
+                    </button> 
+                </div>
+            </div>
+                
+                
+                
             </li>
         </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://kit.fontawesome.com/f17817404a.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
